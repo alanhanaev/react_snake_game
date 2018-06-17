@@ -12,9 +12,6 @@ import Board from "./../Board/Board"
 import './MainPage.css';
 
 const styles = theme => ({
-    root: {
-        flexGrow: 1,
-    },
     paperInputs: {
         padding: theme.spacing.unit * 2,
         textAlign: 'center',
@@ -26,9 +23,6 @@ const styles = theme => ({
         display: "flex",
         alignItems: "center",
         justifyContent: "center"
-    },
-    table: {
-        minWidth: 450,
     },
     button: {
         margin: theme.spacing.unit,
