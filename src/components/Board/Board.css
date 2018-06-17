@@ -1,0 +1,34 @@
+.Board {
+    border: 1px solid black;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.BoardRow {
+display: inline-block;
+line-height: 0px;
+}
+
+.BoardCellEmpty {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(75, 74, 74);
+}
+
+.BoardCellBusySnake {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(75, 74, 74);
+    background-color: gray;
+}
+
+.BoardCellBusyApple {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 1px solid rgb(75, 74, 74);
+    background-color: green;
+}
