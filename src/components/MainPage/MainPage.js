@@ -133,13 +133,13 @@ class MainPage extends Component {
         let newHead = [];
         switch (direction) {
             case Direction.UP:
-                newHead = [xItems-1, head[1]];
+                newHead = [xItems - 1, head[1]];
                 break;
             case Direction.DOWN:
                 newHead = [0, head[1]];
                 break;
             case Direction.LEFT:
-                newHead = [head[0], yItems-1];
+                newHead = [head[0], yItems - 1];
                 break;
             case Direction.RIGHT:
                 newHead = [head[0], 0];
@@ -154,22 +154,13 @@ class MainPage extends Component {
         let eatApple = false;
 
         //We calculate the new position of the snake's head based on the motion vector
-        let newHead = this.getNewHeadPosition(this.snake, this.motionVector);
+        let newHead = this.getNewHeadPosition(this.snake, this.motionVector, this.state.xSize, this.state.ySize, this.statewalls);
 
         //If the snake struck itself
         if (this.beatSelf(this.snake, newHead)) {
             this.endGame();
             return;
         }
-
-        //If the snake ate an apple
-        if (_.isEqual(newHead, this.apple)) {
-            eatApple = true;
-            this.apple = this.generateApple(this.snake, this.apple, this.state.xSize, this.state.ySize);
-        }
-
-        //Remove the last element of our snake, if the apple is not eaten
-        if (!eatApple) this.snake = this.snake.slice(1);
 
         //Check whether the snake hit the border
         if (newHead[0] < 0 || newHead[1] < 0 || newHead[0] > this.state.xSize - 1 || newHead[1] > this.state.ySize - 1) {
@@ -181,6 +172,15 @@ class MainPage extends Component {
                 newHead = this.getOppositeXY(this.snake[this.snake.length - 1], this.motionVector, this.state.xSize, this.state.ySize);
             }
         }
+
+        //If the snake ate an apple
+        if (_.isEqual(newHead, this.apple)) {
+            eatApple = true;
+            this.apple = this.generateApple(this.snake, this.apple, this.state.xSize, this.state.ySize);
+        }
+
+        //Remove the last element of our snake, if the apple is not eaten
+        if (!eatApple) this.snake = this.snake.slice(1);
 
         //Add a new element to the head of the snake
         this.snake.push(newHead);
@@ -206,7 +206,7 @@ class MainPage extends Component {
     endGame = () => {
         clearInterval(this.interv);
         alert("Game end, you score " + this.state.eatedApple);
-        this.setState({ gameStatus: GameStatus.NOT_STARTED});
+        this.setState({ gameStatus: GameStatus.NOT_STARTED });
     }
 
     pressKeyFn = (event) => {
