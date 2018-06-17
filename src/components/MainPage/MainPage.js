@@ -44,7 +44,7 @@ const styles = theme => ({
 const minX = 5;
 const maxX = 27;
 const minY = 5;
-const maxY = 40;
+const maxY = 30;
 
 
 class MainPage extends Component {
