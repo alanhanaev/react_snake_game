@@ -162,9 +162,8 @@ class MainPage extends Component {
                 this.endGame();
                 return;
             }
-            else {
+            else
                 newHead = this.getOppositeXY(this.snake[this.snake.length - 1], this.motionVector, this.state.xSize, this.state.ySize);
-            }
         }
 
         //If the snake ate an apple
