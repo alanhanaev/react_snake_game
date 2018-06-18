@@ -235,7 +235,7 @@ class MainPage extends Component {
                                     <TextField id="number"
                                         label="X cell numbers"
                                         value={this.state.xSize}
-                                        onChange={(e) => { let value = Number(e.target.value); if (value >= minX && value <= maxX) this.setState({ ...this.state, xSize: value }) }}
+                                        onChange={(e) => { let value = Number(e.target.value); if (value >= minX && value <= maxX) this.setState({ xSize: value }) }}
                                         type="number"
                                         className={classes.textField}
                                         InputLabelProps={{
@@ -250,7 +250,7 @@ class MainPage extends Component {
                                     <TextField id="number"
                                         label="Y cell numbers"
                                         value={this.state.ySize}
-                                        onChange={(e) => { let value = Number(e.target.value); if (value >= minY && value <= maxY) this.setState({ ...this.state, ySize: value }) }}
+                                        onChange={(e) => { let value = Number(e.target.value); if (value >= minY && value <= maxY) this.setState({ ySize: value }) }}
                                         type="number"
                                         className={classes.textField}
                                         InputLabelProps={{
@@ -262,7 +262,7 @@ class MainPage extends Component {
                                     <TextField id="number"
                                         label="Speed game, from 1 to 20"
                                         value={this.state.speedGame}
-                                        onChange={(e) => { let value = Number(e.target.value); if (value >= 1 && value <= 20) this.setState({ ...this.state, speedGame: value }) }}
+                                        onChange={(e) => { let value = Number(e.target.value); if (value >= 1 && value <= 20) this.setState({speedGame: value }) }}
                                         type="number"
                                         className={classes.textField}
                                         InputLabelProps={{
