@@ -61,15 +61,15 @@ class MainPage extends Component {
     }
 
     getNewBoard = (snake, apple, xSize, ySize) => {
-        let board = Array.from(new Array(xSize), () => Array.from(new Array(ySize), () => CellState.EMPTY))
-        board = board.map((xItem, xIndex) => xItem.map((yItem, yIndex) => {
-            if (snake.findIndex((item) => { return item[0] === xIndex && item[1] === yIndex }) !== -1)
-                return CellState.BUSY_SNAKE;
-            if (xIndex === apple[0] && yIndex === apple[1])
-                return CellState.BUSY_APPLE;
-            return CellState.EMPTY;
-        }));
-        return board;
+            let board = Array.from(new Array(xSize), () => Array.from(new Array(ySize), () => CellState.EMPTY))
+            board = board.map((xItem, xIndex) => xItem.map((yItem, yIndex) => {
+                if (snake.findIndex((item) => { return item[0] === xIndex && item[1] === yIndex }) !== -1)
+                    return CellState.BUSY_SNAKE;
+                if (xIndex === apple[0] && yIndex === apple[1])
+                    return CellState.BUSY_APPLE;
+                return CellState.EMPTY;
+            }));
+            return board;
     }
 
     getRandomInt(min, max) {
@@ -87,14 +87,12 @@ class MainPage extends Component {
             for (let element of snake)
                 if (element[0] === x && element[1] === y) {
                     goodValue = false;
-                    return;
+                    break;
                 }
             if (goodValue) {
-                apple = [x, y];
-                break;
+                return [x, y];
             }
         }
-        return [x, y];
     }
 
     beatSelf(snake, newHead) {
@@ -262,7 +260,7 @@ class MainPage extends Component {
                                     <TextField id="number"
                                         label="Speed game, from 1 to 20"
                                         value={this.state.speedGame}
-                                        onChange={(e) => { let value = Number(e.target.value); if (value >= 1 && value <= 20) this.setState({speedGame: value }) }}
+                                        onChange={(e) => { let value = Number(e.target.value); if (value >= 1 && value <= 20) this.setState({ speedGame: value }) }}
                                         type="number"
                                         className={classes.textField}
                                         InputLabelProps={{
